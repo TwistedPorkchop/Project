@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+/*I dont think nayhting up here is useful but ill leave it just in case*/
+.rounded-button {
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 10px;
+  }

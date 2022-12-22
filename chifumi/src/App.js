@@ -6,6 +6,8 @@ import Multi from './pages/multi';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+const axios = require('axios').default;
+
 function App() {
   return (
     <div id="home">
@@ -22,6 +24,41 @@ function App() {
     </div>
   );
   }
+
+async function NewUser(usr, psw) {
+  const data = {
+    username: usr.toString(),
+    password: psw.toString(),
+  };
+
+  try {
+    const response = await axios.post('http://fauques.freeboxos.fr:3000/register', data);
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+  //response
+  //"_id": "IDUSER",
+  //"username":"token",
+  //"password":"password"
+}
+
+async function Login(usr, psw) {
+  const data = {
+    username: usr.toString(),
+    password: psw.toString(),
+  };
+
+  try {
+    const response = await axios.post('http://fauques.freeboxos.fr:3000/login', data);
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+  //response
+  //"token":"token"
+}
+  
 /*
 http://fauques.freeboxos.fr:3000/
 */

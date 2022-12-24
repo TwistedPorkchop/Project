@@ -1,6 +1,6 @@
 //import Single from "./single.js";
 //import Multi from "./multi.js";
-import { Login, Register } from "../App.js";
+import { Login, Register, setData } from "../App.js";
 
 import React, { useState } from 'react';
 
@@ -27,6 +27,7 @@ const handleSubmit = async (event) => {
     
     if(result.status === 200){
         setFormSubmitted(true);
+        setData(result.data);
     }else if(result.status === 401){
         setErrorMsg("Password or Username is invalid, Please try again.");
     }else if(result.status === 409){

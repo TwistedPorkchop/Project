@@ -37,7 +37,7 @@ export async function Register(usr, psw) {
     return response;
   } catch (error) {
     console.error(error);
-    return error.status;
+    return error.response;
   }
   //response
   //Code 201
@@ -58,13 +58,24 @@ export async function Login(usr, psw) {
     return response;
   } catch (error) {
     console.error(error);
-    return error.status;
+    return error.response;
   }
   //response
   //Code 200
   //"token":"token"
 }
-  
+
+let data = null;
+
+//Whenever any usser data need to be modified we can use this function
+export function setData(newData) {
+  data = newData;
+}
+//whenever user data needs to be used we can use this function
+export function getData() {
+  return data;
+}
+
 /*
 http://fauques.freeboxos.fr:3000/
 */

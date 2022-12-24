@@ -3,10 +3,10 @@ import Home from './pages/home.js';
 import Single from './pages/single';
 import Multi from './pages/multi';
 
-import ReactDOM from "react-dom/client";
+//import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-const axios = require('axios').default;
+import axios from 'axios';
 
 export default function App() {
   return (
@@ -34,10 +34,13 @@ export async function Register(usr, psw) {
   try {
     const response = await axios.post('http://fauques.freeboxos.fr:3000/register', data);
     console.log(response.data);
+    return response.status;
   } catch (error) {
     console.error(error);
+    return 409;
   }
   //response
+  //Code 201
   //"_id": "IDUSER",
   //"username":"token",
   //"password":"password"
@@ -52,10 +55,13 @@ export async function Login(usr, psw) {
   try {
     const response = await axios.post('http://fauques.freeboxos.fr:3000/login', data);
     console.log(response.data);
+    return response.status;
   } catch (error) {
     console.error(error);
+    return 401;
   }
   //response
+  //Code 200
   //"token":"token"
 }
   

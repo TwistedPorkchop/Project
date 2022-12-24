@@ -1,7 +1,5 @@
 import '../App.css';
 
-const axios = require('axios').default;
-
 window.addEventListener('load', () => {
     var color = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
     const elements = document.querySelectorAll('.Arcade');

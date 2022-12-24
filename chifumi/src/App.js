@@ -34,10 +34,10 @@ export async function Register(usr, psw) {
   try {
     const response = await axios.post('http://fauques.freeboxos.fr:3000/register', data);
     console.log(response.data);
-    return response.status;
+    return response;
   } catch (error) {
     console.error(error);
-    return 409;
+    return error.status;
   }
   //response
   //Code 201
@@ -55,10 +55,10 @@ export async function Login(usr, psw) {
   try {
     const response = await axios.post('http://fauques.freeboxos.fr:3000/login', data);
     console.log(response.data);
-    return response.status;
+    return response;
   } catch (error) {
     console.error(error);
-    return 401;
+    return error.status;
   }
   //response
   //Code 200

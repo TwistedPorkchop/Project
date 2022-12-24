@@ -25,11 +25,11 @@ const handleSubmit = async (event) => {
 
     // Set formSubmitted to true
     
-    if(result === 200){
+    if(result.status === 200){
         setFormSubmitted(true);
-    }else if(result === 401){
+    }else if(result.status === 401){
         setErrorMsg("Password or Username is invalid, Please try again.");
-    }else if(result === 409){
+    }else if(result.status === 409){
         setErrorMsg("This user already exists, Try Logging in or make a new account.");
     }else{
         console.log("Error: " + result);
@@ -51,7 +51,7 @@ return(
             <div className="App">
                 <div className="buttons">
                     <Link to="/single"><button className="rounded-button">Single-Player</button></Link>
-                    <Link to="/"><button className="rounded-button">Home</button></Link>
+                    <Link to="/" exact><button className="rounded-button">Home</button></Link>
                     <Link to="/multi"><button className="rounded-button">Multiplayer</button></Link>
                 </div>
             </div>

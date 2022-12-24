@@ -27,11 +27,14 @@ const handleSubmit = (event) => {
     {registered ? (
         Login(username, password)
     ) :
-    Register(username, password);}
+        Register(username, password);}
 
     // Set formSubmitted to true
     setFormSubmitted(true);
 };
+const handleRegister = (event) => {
+    setRegistered(event.target.checked);
+  };
 //To explain the code below.
 //We check weather or not the form has been submited before we give users access to the main website
 //This is handled using a terniary dependant on the state of formSubmitted
@@ -48,23 +51,27 @@ return(
             </div>
         </nav>
     ) :
-    <div>
-    <form className="arcade-form" onSubmit={handleSubmit}>
+    <div className="arcade-form">
+    <form onSubmit={handleSubmit}>
     <label className="arcade-label">
     Username:
-        <input className="arcade-input" type="text" value={username} onChange={(event) => setUsername(event.target.value)} />
+        <input className="arcade-input" type="text" value={username} onChange={(event) => setUsername(event.target.value)} required />
     </label>
     <br />
     <label className="arcade-label">
     Password:
-        <input className="arcade-input" type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+        <input className="arcade-input" type="password" value={password} onChange={(event) => setPassword(event.target.value)} required />
     </label>
     <br />
         <button className="arcade-button" type="submit">Submit</button>
     </form>
 
+    {registered ? (
+        <div className="row"><h1>←</h1><h2>Login</h2></div>
+    ) :
+        <div className="row"><h2>Register</h2><h1>→</h1></div>}
     <label class="switch">
-        <input type="checkbox"/>
+        <input type="checkbox" onChange={handleRegister}/>
         <span class="slider round"></span>
     </label>
     </div>

@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const axios = require('axios').default;
 
-function App() {
+export default function App() {
   return (
     <div id="home">
     <BrowserRouter>
@@ -25,7 +25,7 @@ function App() {
   );
   }
 
-async function NewUser(usr, psw) {
+export async function Register(usr, psw) {
   const data = {
     username: usr.toString(),
     password: psw.toString(),
@@ -43,7 +43,7 @@ async function NewUser(usr, psw) {
   //"password":"password"
 }
 
-async function Login(usr, psw) {
+export async function Login(usr, psw) {
   const data = {
     username: usr.toString(),
     password: psw.toString(),
@@ -62,4 +62,3 @@ async function Login(usr, psw) {
 /*
 http://fauques.freeboxos.fr:3000/
 */
-export default App;

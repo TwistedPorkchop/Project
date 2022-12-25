@@ -7,7 +7,7 @@ import Multi from './pages/multi';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import axios from 'axios';
-
+export var JWTtoken = null;
 export default function App() {
   return (
     <div id="home">
@@ -34,6 +34,7 @@ export async function Register(usr, psw) {
   try {
     const response = await axios.post('http://fauques.freeboxos.fr:3000/register', data);
     console.log(response.data);
+    JWTtoken = response.data.username;
     return response;
   } catch (error) {
     console.error(error);
@@ -54,7 +55,8 @@ export async function Login(usr, psw) {
 
   try {
     const response = await axios.post('http://fauques.freeboxos.fr:3000/login', data);
-    console.log(response.data);
+    console.log(response.data.token);
+    JWTtoken = response.data.token;
     return response;
   } catch (error) {
     console.error(error);

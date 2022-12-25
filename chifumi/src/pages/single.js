@@ -80,9 +80,9 @@ window.addEventListener('load', () => {
 
     player2Points += 1;
 
-    resultText.textContent = "Result : Player 2 Win";
+    resultText.textContent = "Result : Bot Win";
 
-    player2Text.textContent = "Player 2 : " + player2Points;
+    player2Text.textContent = "Bot : " + player2Points;
 
   }
 
@@ -109,8 +109,8 @@ function Single() {
 
         <div>
          <h2 id="result">Result : </h2>
-         <h2 id="player1">player 1 : {player1Points}</h2>
-         <h2 id="player2">player 2 : {player2Points}</h2>
+         <h2 id="player1"> player : {player1Points}</h2>
+         <h2 id="player2"> Bot : {player2Points}</h2>
         </div>
 
       </div>

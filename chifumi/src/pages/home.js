@@ -9,7 +9,7 @@ import {
     Outlet,
     Link
   } from "react-router-dom";
-
+ export var player = null;
 function Home(){
 // Declare state variables for the form values and form submission status
 const [username, setUsername] = useState('');
@@ -48,6 +48,7 @@ const handleRegister = (event) => {
 return(
     <>
     {formSubmitted ? (
+     <>
         <nav>
             <div className="App">
                 <div className="buttons">
@@ -55,16 +56,23 @@ return(
                     <Link to="/" exact><button className="rounded-button">Home</button></Link>
                     <Link to="/multi"><button className="rounded-button">Multiplayer</button></Link>
                 </div>
+                
             </div>
         </nav>
-        /* Any cool player stats should go here */
+       <h1> {username} </h1>
+
+     </>
+ /* Any cool player stats should go here */
     ) :
     <div className="arcade-form">
             <p  style={{ color: 'red', fontSize: '16px' }}>{errorMsg}</p>
     <form onSubmit={handleSubmit}>
     <label className="arcade-label">
     Username:
-        <input className="arcade-input" type="text" value={username} onChange={(event) => setUsername(event.target.value)} required />
+        <input className="arcade-input" type="text" value={username} onChange={(event) => {
+            setUsername(event.target.value);
+            player = event.target.value;
+            }} required />
     </label>
     <br />
     <label className="arcade-label">

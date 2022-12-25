@@ -1,9 +1,21 @@
 //const axios = require('axios').default;
+import player from "./home"
+
+
+
+
 
 function Multi(){
-    return(
-        <p>Multi Player</p>
-    );
-}
+    return (
+     <div>
+       <p>{player}</p>
+       <button>join </button>
+       <div>
+        
+       </div>
+     </div>
+      );
+    }
+
 
 export default Multi;
